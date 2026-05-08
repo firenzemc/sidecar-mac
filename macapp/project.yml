@@ -1,0 +1,47 @@
+name: Sidecar
+options:
+  bundleIdPrefix: dev.sidecar
+  deploymentTarget:
+    macOS: "14.0"
+  createIntermediateGroups: true
+  groupSortPosition: top
+
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    DEVELOPMENT_TEAM: ""
+    ENABLE_HARDENED_RUNTIME: YES
+    MACOSX_DEPLOYMENT_TARGET: "14.0"
+    SWIFT_TREAT_WARNINGS_AS_ERRORS: NO
+
+targets:
+  Sidecar:
+    type: application
+    platform: macOS
+    sources:
+      - path: Sidecar
+        excludes:
+          - "Info.plist"
+          - "Sidecar.entitlements"
+    info:
+      path: Sidecar/Info.plist
+      properties:
+        CFBundleDisplayName: Sidecar
+        CFBundleShortVersionString: "0.1.0"
+        CFBundleVersion: "1"
+        LSApplicationCategoryType: public.app-category.utilities
+        LSMinimumSystemVersion: "14.0"
+        NSHumanReadableCopyright: ""
+        NSPrincipalClass: NSApplication
+    entitlements:
+      path: Sidecar/Sidecar.entitlements
+      properties:
+        com.apple.security.app-sandbox: false
+        com.apple.security.network.client: true
+        com.apple.security.network.server: false
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: dev.sidecar.app
+        CODE_SIGN_STYLE: Automatic
+        CODE_SIGN_IDENTITY: "-"
+        ENABLE_PREVIEWS: YES

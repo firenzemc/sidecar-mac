@@ -18,6 +18,10 @@ DerivedData/
 *.dSYM.zip
 *.dSYM
 
+# XcodeGen-managed: project file is generated from project.yml on demand.
+macapp/Sidecar.xcodeproj/
+macapp/Sidecar.xcworkspace/
+
 # Swift Package Manager
 .swiftpm/
 .build/
